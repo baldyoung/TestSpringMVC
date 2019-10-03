@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 import static java.lang.System.out;
 
@@ -41,7 +43,10 @@ public class OneController {
             // 操作CRUD，第一个参数：指定statement，规则：命名空间+“.”+statementId
             // 第二个参数：指定传入sql的参数：这里是用户id
             User user = sqlSession.selectOne("TestMapper.selectUser");
-            System.out.println(user);
+            System.out.println("one :"+user);
+            List<Map> list = sqlSession.selectList("TestMapper.queryAllUser");
+            out.println("list :"+list);
+
             out.println("测试结束");
         }else
             out.println("inputStream is null");

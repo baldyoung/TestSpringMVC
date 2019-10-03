@@ -8,6 +8,10 @@
        resultType：sql语句查询结果集的封装类型,tb_user即为数据库中的表
      -->
     <select id="selectUser" resultType="Java.Pojo.User">
-      select * from user
+      select * from user where name='jack'
    </select>
+
+    <select id="queryAllUser" resultType="map">
+        select * from user
+    </select>
 </mapper>
